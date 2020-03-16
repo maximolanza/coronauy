@@ -69,21 +69,25 @@ function App() {
   return (
     <Fragment>
       <Alerta />
-
-      <div className="container text-center">
-        <header>
-          <h2>Monitoreo</h2>
-        </header>
-       
+      <h2 className="title text-center">Monitoreo</h2>
+      <div className="container">
+        
+        <div className="row">
+        <div className="grid-item">
+          <div className="item">
             <Global
               global={global}
             />
-           
+            </div>
+         </div>  
+         <div className="grid-item">
+         <div className="item">
             <Uruguay
               uruguay={uruguay}
             />
-         
-        
+            </div>
+         </div>
+         </div>
       </div>
       <Footer />
     </Fragment>

@@ -3,10 +3,10 @@ import ContadorGlobal from './ContadorGlobal';
 
 
 const Global = ({ global }) => {
-
+/*style={{ maxwidth: "30rem", width: "40%"}}*/
     const { cases, deaths, recovered } = global;
     return (
-        <div className="card border-secondary mb-3"style={{ maxwidth: "30rem", width: "40%"}}>
+        <div className="item card border-secondary">
             <div className="card-header">Global</div>
             <div className="card-body">
                 <ul className="list-group">

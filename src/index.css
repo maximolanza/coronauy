@@ -7,17 +7,50 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.title{
+  width: 100%;
+}
+/*
 .content {
   padding:20px;
+  
 }
 .content_starter {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
+  
 }
 
 
 .col{
   display: flex;
 }
+*/
+
+.container{
+  width:100%;
+  display: grid;
+  /*grid-template-columns: 1fr 1fr;*/
+  grid-gap: 10px;
+}
+
+.item, .row{
+ /* height: 400px;*/ 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 10%;
+}
+
+.grid-item{
+  padding-left: 10px;
+  width: 40%;
+}
+/*
+@media ( max-width: 768){
+  .container{
+    grid-template-columns: 1fr;
+  }
+}*/
