@@ -14,7 +14,7 @@ const Uruguay = ({ uruguay }) => {
 
 
     return (
-        <div className="card border-secondary mb-3" style={{ maxwidth: "30rem", width: "50%"}}>
+        <div className="card border-secondary mb-3" style={{ maxwidth: "30rem", width: "40%"}}>
             <div className="card-header"> {country} </div>
             <div className="card-body">
                 <ul className="list-group">

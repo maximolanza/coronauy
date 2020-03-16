@@ -6,7 +6,7 @@ const Global = ({ global }) => {
 
     const { cases, deaths, recovered } = global;
     return (
-        <div className="card border-secondary mb-3" style={{ maxwidth: "20rem" }}>
+        <div className="card border-secondary mb-3"style={{ maxwidth: "30rem", width: "40%"}}>
             <div className="card-header">Global</div>
             <div className="card-body">
                 <ul className="list-group">
