@@ -59,12 +59,12 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
    <td classname="columnaIndex textlg" style={{ paddingRight: "0"}}> { index +1 }</td> 
      <td className="columnaPais textlg" style={{ paddingRight: "0"}}>{ country }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ cases }</td>
-     <td id="fultimos" className="columnaAncha textsm" style={{ paddingRight: "0"}}>{ todayCases }</td>
+   {/*   <td id="fultimos" className="columnaAncha textsm" style={{ paddingRight: "0"}}>{ todayCases }</td>*/}
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ active }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ critical }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ recovered}</td>
      <td  className="columna textsm" style={{ paddingRight: "0" , justifyContent: "center" }}>{ deaths }</td>
-     <td id="ffallecidos" className="columnaUltima textsm" style={{ paddingRight: "0"}}>{ todayDeaths }</td>
+    {/*  <td id="ffallecidos" className="columnaUltima textsm" style={{ paddingRight: "0"}}>{ todayDeaths }</td>*/}
    </tr>
 /*<tr className={ tableClass } id={country} >
    <td classname="columnaIndex">{ index +1 }</td>
