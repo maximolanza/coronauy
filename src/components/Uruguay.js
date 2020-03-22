@@ -6,7 +6,6 @@ import  { StateContext } from '../context/StateContext';
 
 const Uruguay = () => {
 
-    //const { uruguay } = useContext(StateContext);
     const { all } = useContext(StateContext);
     const uruguay = all.uruguay;
   
@@ -34,7 +33,8 @@ const Uruguay = () => {
                     <ContadorUruguay className="contaodr"
                         indicador="Casos:"
                         valor={cases} />
-                    { /*
+                    {   // Descomentar para obtener los casos del día 
+                        /*
                     <ContadorUruguay className="contaodr"
                     indicador="Casos HOY:"
                     valor={todayCases} />
@@ -44,20 +44,19 @@ const Uruguay = () => {
                         valor={active} />
 
                     <ContadorUruguay className="contaodr"
-                        indicador="Recuperados:"
-                        valor={recovered} />
-                       
-                        { /*
-                    <ContadorUruguay className="contaodr"
                         indicador="Criticos:"
                         valor={critical} />
-                        */}
+
+                    <ContadorUruguay className="contaodr"
+                        indicador="Recuperados:"
+                        valor={recovered} />
 
                     <ContadorUruguay className="contaodr"
                         indicador="Fallecidos:"
                         valor={deaths} />
 
-                    { /*<ContadorUruguay className="contaodr"
+                    {  // Descomentar para obtener los fallecidos del día 
+                        /*<ContadorUruguay className="contaodr"
                     indicador="Fallecidos hoy:"
                     valor={todayDeaths} />
                     */}

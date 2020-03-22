@@ -4,45 +4,56 @@ import Uruguay from './components/Uruguay';
 import Footer from './components/Footer';
 import Alerta from './components/Alerta';
 import ListadoPaises from './components/Listado/ListadoPaises';
-
-import  { StateContext } from './context/StateContext';
+import UruguayChart from './components/UruguayChart';
+import { StateContext } from './context/StateContext';
 import axios from 'axios';
 
 function App() {
 
-  
+
   return (
-    <div className="container"> 
+    <div className="container">
       <Alerta />
       <h2 className="title text-center">Monitoreo</h2>
-     
 
-        <div className="row">
-          <div className="grid-item">
-            <div className="item">
-              <Global
-              />
-            </div>
-          </div>
-          <div className="grid-item">
-            <div className="item">
-              <Uruguay
-              />
-            </div>
+
+      <div className="row">
+        <div className="grid-item">
+          <div className="item">
+            <Global
+            />
           </div>
         </div>
-        <div className="row">
-
-          <div className="itemListado">
-          
-            <ListadoPaises />
-            </div>
-          
-
+        <div className="grid-item" style={{ height: "100%"}}>
+          <div className="item" style={{ margin: "0"}}>
+            <Uruguay
+            />
+          </div>
         </div>
-     
-      <Footer />
+
+       
       </div>
+      <div className="row">
+      <div className="itemListado">
+      <UruguayChart
+      />
+      </div>
+  </div>
+
+
+
+
+
+      <div className="row">
+        <div className="itemListado">
+          <ListadoPaises />
+        </div>
+
+
+      </div>
+
+      <Footer />
+    </div>
   );
 }
 

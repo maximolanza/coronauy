@@ -20,6 +20,12 @@ const Global = () => {
     )
     )
 
+    let criticalTotal = 0;
+    countries.map((c) => (
+        criticalTotal += c.critical
+    )
+    )
+
 
     return (
         <div className="item card border-secondary mb-3 d-flex">
@@ -34,6 +40,10 @@ const Global = () => {
                     <ContadorGlobal className="contaodr"
                         indicador="Activos:"
                         valor={activeTotal} />
+
+                    <ContadorGlobal className="contaodr"
+                        indicador="Criticos:"
+                        valor={criticalTotal} />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Recuperados:"

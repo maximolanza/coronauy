@@ -45,18 +45,10 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
                 </div>
             </div>
  */
-/*      <th scope="col"> Nº</td>
-        <th scope="col">Pais</td>
-        <tthh scope="col">Casos</tthh>
-        <th scope="col">Ultimos casos</td>
-        <th scope="col">Activos</td>
-        <th scope="col">Criticos</td>
-        <th scope="col">Recuperados</td>
-        <th scope="col">Fallecidos</td>
-        <td scope="col">Ultimos fallecimientos</td>*/
+
         
   <tr className={ tableClass } id={country} >
-   <td classname="columnaIndex textlg" style={{ paddingRight: "0"}}> { index +1 }</td> 
+   <td className="columnaIndex textlg" style={{ paddingRight: "0"}}> { index +1 }</td> 
      <td className="columnaPais textlg" style={{ paddingRight: "0"}}>{ country }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ cases }</td>
    {/*   <td id="fultimos" className="columnaAncha textsm" style={{ paddingRight: "0"}}>{ todayCases }</td>*/}
@@ -66,17 +58,7 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
      <td  className="columna textsm" style={{ paddingRight: "0" , justifyContent: "center" }}>{ deaths }</td>
     {/*  <td id="ffallecidos" className="columnaUltima textsm" style={{ paddingRight: "0"}}>{ todayDeaths }</td>*/}
    </tr>
-/*<tr className={ tableClass } id={country} >
-   <td classname="columnaIndex">{ index +1 }</td>
-     <td className="columnaPais">{ country }</td>
-     <td className="columna">{ cases }</td>
-     <td className="columnaAncha">{ todayCases }</td>
-     <td className="columna">{ active }</td>
-     <td className="columna">{ critical }</td>
-     <td className="columna">{ recovered}</td>
-     <td className="columna">{ deaths }</td>
-     <td className="columnaUltima">{ todayDeaths }</td>
-   </tr>*/
+
        );
 }
 
