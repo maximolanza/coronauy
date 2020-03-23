@@ -30,14 +30,12 @@ const StateProvider = (props) => {
       const urlGlobal = `https://corona.lmao.ninja/all`;
       const urlCountries = `https://corona.lmao.ninja/countries?sort=cases`;
       const urlUruguay = `https://corona.lmao.ninja/countries/uruguay`;
-      const urlChina = `https://corona.lmao.ninja/countries/china`;
       const urlHistoricaluy = `https://corona.lmao.ninja/historical/uruguay`;
 
-      const [cglobal, ccountries, curuguay, cchina,chistoricaluy] = await Promise.all([
+      const [cglobal, ccountries, curuguay, chistoricaluy] = await Promise.all([
         axios(urlGlobal),
         axios(urlCountries),
         axios(urlUruguay),
-        axios(urlChina),
         axios(urlHistoricaluy)
       ]);
       const timeline = chistoricaluy.data.timeline ;
@@ -46,8 +44,6 @@ const StateProvider = (props) => {
         countries: ccountries.data,
         uruguay: curuguay.data,
         global: cglobal.data,
-        china: cchina.data,
-        historicaluy: timeline,
         casesuy : timeline.cases,
         recovereduy: timeline.recovered,
         deathsuy: timeline.deaths,

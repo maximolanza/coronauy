@@ -1,12 +1,11 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React from 'react';
 import Global from './components/Global';
 import Uruguay from './components/Uruguay';
 import Footer from './components/Footer';
 import Alerta from './components/Alerta';
 import ListadoPaises from './components/Listado/ListadoPaises';
 import UruguayChart from './components/UruguayChart';
-import { StateContext } from './context/StateContext';
-import axios from 'axios';
+
 
 function App() {
 
@@ -34,17 +33,14 @@ function App() {
        
       </div>
       <div className="row">
-      <div className="itemListado">
+      <div className="itemListado chart" >
       <UruguayChart
       />
       </div>
   </div>
 
 
-
-
-
-      <div className="row">
+<div className="row">
         <div className="itemListado">
           <ListadoPaises />
         </div>
