@@ -7,7 +7,7 @@ const Footer = () => {
         borderTop: "1px solid grey",
         textAlign: "center",
      
-        position: "fixed",
+        position: "relative",
         left: "0",
         bottom: "0",
         height: "70px",
