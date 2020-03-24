@@ -6,10 +6,37 @@ import  { StateContext } from '../../context/StateContext';
 
 const ListadoPaises = () => {
 
+  
+  const [ busqueda, guardarBusqueda ] = useState();
   const { all } = useContext(StateContext);
-  const countries = all.countries;
-  const global = all.global;
+  let countries = all.countries;
+  const [ paises, guardarPaises ] = useState([]);
+ 
+  
 
+
+  useEffect(() => {
+
+    if(busqueda){
+      guardarPaises(filterCountries( busqueda ));
+    }
+  }, [busqueda])
+
+  
+  const actualizar = e =>{
+    e.preventDefault();
+    guardarBusqueda(e.target.value);
+    document.getElementById("input").scrollIntoView({
+      block: "center"
+    });
+  }
+  
+  const filterCountries = (query) => {
+    return countries.filter((c) => {
+      console.log(c);
+        return c.country.toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
+    })
+  }
   // Descomentar para calcular maximos valores de ProgressBar
 /*
        let maxC = 0;
@@ -60,7 +87,26 @@ const ListadoPaises = () => {
      }
            </div>
     </div>*/
-    
+     <Fragment>
+   {/*   <input
+     type="text"
+     id="input"
+     name="pais"
+     placeholder="Nombre del País"
+     onChange={ actualizar }
+     value={ busqueda }
+ />*/}
+ <div className="item card border-secondary mb-4 d-flex center">
+ <h4 id="busqueda">Buscar País</h4>
+ <div className="form-group col-sm-8 item center ">
+  <input className="form-control form-control-lg mt-3" type="text"
+  id="input"
+  name="pais"
+  placeholder="Ej: Uruguay"  
+  onChange={ actualizar } 
+  value={ busqueda }/>
+</div>
+</div>
     <table className="table table-hover">
     <thead>
       <tr>
@@ -76,17 +122,25 @@ const ListadoPaises = () => {
       </tr>
     </thead>
     <tbody>
-    { countries.map( ( c, index ) => (
+    { 
+
+      busqueda ? (paises.map( ( c, index ) => (
+        <Pais 
+            key= { index }
+            index= { index }
+            pais = { c } />
+        )
+    ) ) : (countries.map( ( c, index ) => (
       <Pais 
           key= { index }
           index= { index }
           pais = { c } />
       )
-  ) 
+  ) )
 }
     </tbody>
     </table>
- 
+    </Fragment>
         );
 }
  

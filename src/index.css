@@ -158,6 +158,14 @@ body {
   
   }
 
+.center{
+  
+}
 
 
+#busuqeda{
+display: flex;
+justify-content: space-around;
+position: 'absolute'
+}
 }
