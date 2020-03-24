@@ -11,13 +11,19 @@ const UruguayChart = () => {
     
 
     const { cases, deaths, recovered } = uruguay;
+
     const convertDate = str => {
         const dateParts = str.split("/");
-        const day = dateParts[1];
+        const day = dateParts[1] ;
         const month = dateParts[0];
         const year = dateParts[2] + '20';
-        return year + '-' + month + '-' + day;
+        let c = new Date(year,month,day); 
+        // Se resta 1 día por diferencia de fecha de carga de datos del dataset
+        c.setDate( c.getDate() - 1 );
+        return c.getFullYear() + '-' + c.getMonth() + '-' + c.getDate();
+        
     }
+
 
     const casos = all.casesuy;
     const recuperados = all.recovereduy;
@@ -37,9 +43,9 @@ const UruguayChart = () => {
         strcasos[strcasos.length - 1] = strcasos[strcasos.length - 1].replace("}", "");
         const caso = strcasos[i].split(':');
         
-            
+            console.log(convertDate(caso[0].replace("\"", "").replace("\"", "")));
             dataCases.push({
-                y: parseInt(caso[1]),
+                y: (convertDate(caso[0].replace("\"", "").replace("\"", "")) === '2020-3-22' ? 158 :  parseInt(caso[1])),
                 label: convertDate(caso[0].replace("\"", "").replace("\"", ""))
             })
     }
