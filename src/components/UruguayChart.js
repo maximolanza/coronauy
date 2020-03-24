@@ -25,6 +25,16 @@ const UruguayChart = () => {
     }
 
 
+    const convertDateWithoutSubstractOneDay = str => {
+        const dateParts = str.split("/");
+        const day = dateParts[1] ;
+        const month = dateParts[0];
+        const year = dateParts[2] + '20';
+        return year + '-' +month + '-' + day;
+        
+    }
+
+
     const casos = all.casesuy;
     const recuperados = all.recovereduy;
     const fallecidos = all.deathsuy;
@@ -37,6 +47,8 @@ const UruguayChart = () => {
     const filter = new Date('2020-03-13');
     const stringDate = (now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate());
 
+    let lastDay = '';
+
     let strcasos = JSON.stringify(casos).split(',');
     const indexCero = strcasos.indexOf("\"3/13/20\":0");
     for (let i = 51; i < strcasos.length; i++) {
@@ -48,10 +60,11 @@ const UruguayChart = () => {
                 y: (convertDate(caso[0].replace("\"", "").replace("\"", "")) === '2020-3-22' ? 158 :  parseInt(caso[1])),
                 label: convertDate(caso[0].replace("\"", "").replace("\"", ""))
             })
+            lastDay = convertDateWithoutSubstractOneDay(caso[0].replace("\"", "").replace("\"", ""));
     }
     dataCases.push({
         y: cases,
-        label: stringDate
+        label: lastDay,
     })
 
 
@@ -68,7 +81,7 @@ const UruguayChart = () => {
     }
     dataRecovered.push({
         y: recovered,
-        label: stringDate
+        label: lastDay
     })
 
     let strfallecidos = JSON.stringify(fallecidos).split(',');
@@ -84,7 +97,7 @@ const UruguayChart = () => {
     }
     dataDeaths.push({
         y: deaths,
-        label: stringDate
+        label: lastDay
     })
 
     const options = {
