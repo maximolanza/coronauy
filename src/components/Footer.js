@@ -24,7 +24,7 @@ const Footer = () => {
  
   <div className="footer-copyright text-center py-1">Máximo Lanza  </div>
   <div className="footer-copyright text-center py-1">© 2020 Copyright:
-    <a href="https://github.com/maximolanza/coronauy.git"> GitHub</a>
+    
   </div>
  
 
