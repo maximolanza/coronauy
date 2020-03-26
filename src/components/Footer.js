@@ -23,7 +23,7 @@ const Footer = () => {
 
  
   <div className="footer-copyright text-center py-1">Máximo Lanza  </div>
-  <div className="footer-copyright text-center py-1">© 2020 Copyright:
+  <div className="footer-copyright text-center py-1">© 2020 Copyright
     
   </div>
  

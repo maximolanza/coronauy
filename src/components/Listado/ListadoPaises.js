@@ -111,6 +111,7 @@ const ListadoPaises = () => {
     <thead>
       <tr>
       <th scope="col" className="columnaIndex textsm" style={{ paddingRight: "0"}}> Nº</th>
+      <th scope="col" className="columnaIndex textsm" style={{ paddingRight: "0"}}> </th>
         <th scope="col" className="columnaPais textsm" style={{ paddingRight: "0", width:"10%"}}>País</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Casos</th>
        {/* <th id="tultimos" scope="col" className="columnaAncha textsm" style={{ paddingRight: "0"}}>Ultimos casos</th>*/}

@@ -4,8 +4,8 @@ import React, { Fragment } from 'react';
 const Pais = ({ index, maxC, maxR, maxD, pais }) => {
   
 
-    const { cases, recovered, deaths, country, todayDeaths, todayCases, active, critical, casesPerOneMillion } = pais;
-
+    const { cases, recovered, deaths, country, todayDeaths, todayCases, active, critical, casesPerOneMillion, countryInfo } = pais;
+    const { flag } = countryInfo;
     // Descomentar para calcular porcentajes de ProgressBar
 /*
     const casesPr = Math.round(((100 / maxC) * cases));
@@ -49,13 +49,14 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
         
   <tr className={ tableClass } id={country} >
    <td className="columnaIndex textlg" style={{ paddingRight: "0"}}> { index +1 }</td> 
+   <td className="columna textsm"  style={{ paddingRight: "0", paddingLeft: "0"}}><img src={ flag } alt={country + "flag"} className="rounded-circle flag" ></img></td>
      <td className="columnaPais textlg" style={{ paddingRight: "0"}}>{ country }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ cases }</td>
    {/*   <td id="fultimos" className="columnaAncha textsm" style={{ paddingRight: "0"}}>{ todayCases }</td>*/}
-     <td  className="columna textsm" style={{ paddingRight: "0"}}>{ active }</td>
+     <td  className="columna textsm importante" style={{ paddingRight: "0"}}>{ active }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ critical }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ recovered}</td>
-     <td  className="columna textsm" style={{ paddingRight: "0" , justifyContent: "center" }}>{ deaths }</td>
+     <td  className="columna textsm red" style={{ paddingRight: "0" , justifyContent: "center" }}>{ deaths }</td>
     {/*  <td id="ffallecidos" className="columnaUltima textsm" style={{ paddingRight: "0"}}>{ todayDeaths }</td>*/}
    </tr>
 

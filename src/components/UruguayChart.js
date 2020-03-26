@@ -68,7 +68,7 @@ const UruguayChart = () => {
     })
 
 
-    
+    /*
     let strRecuperados = JSON.stringify(recuperados).split(',');
     for (let i = 51; i < strRecuperados.length; i++) {
         strRecuperados[0] = strRecuperados[0].replace("{", "");
@@ -83,7 +83,7 @@ const UruguayChart = () => {
         y: recovered,
         label: lastDay
     })
-
+*/
     let strfallecidos = JSON.stringify(fallecidos).split(',');
     
     for (let i = 51; i < strfallecidos.length; i++) {
@@ -117,13 +117,13 @@ const UruguayChart = () => {
             name: "Casos",
             showInLegend: true,
             dataPoints: dataCases
-        },
+        }/*,
         {
             type: "spline",
             name: "Recuperados",
             showInLegend: true,
             dataPoints: dataRecovered
-        },
+        }*/,
         {
             type: "spline",
             name: "Fallecidos",

@@ -169,3 +169,22 @@ justify-content: space-around;
 position: 'absolute'
 }
 }
+
+.flag {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.green{
+ color: #20481E;
+}
+
+.red{
+  color: #840600;
+}
+
+.importante{
+  font-weight: bold;
+}
