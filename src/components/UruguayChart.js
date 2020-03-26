@@ -49,6 +49,17 @@ const UruguayChart = () => {
 
     let lastDay = '';
 
+    const correccionDia = (dia, valorActual) =>{
+    let valorFinal = valorActual;
+       if (dia  === '2020-3-22'){
+            valorFinal=parseInt('158');
+       }else if (dia  === '2020-3-21'){ 
+        valorFinal=parseInt('135');
+       }
+
+       return valorFinal;
+    }
+
     let strcasos = JSON.stringify(casos).split(',');
     const indexCero = strcasos.indexOf("\"3/13/20\":0");
     for (let i = 51; i < strcasos.length; i++) {
@@ -57,7 +68,8 @@ const UruguayChart = () => {
         
             console.log(convertDate(caso[0].replace("\"", "").replace("\"", "")));
             dataCases.push({
-                y: (convertDate(caso[0].replace("\"", "").replace("\"", "")) === '2020-3-22' ? 158 :  parseInt(caso[1])),
+                //Corrigo el día para que no quede mal en el chart
+                y: correccionDia(convertDate(caso[0].replace("\"", "").replace("\"", "")), parseInt(caso[1])),
                 label: convertDate(caso[0].replace("\"", "").replace("\"", ""))
             })
             lastDay = convertDateWithoutSubstractOneDay(caso[0].replace("\"", "").replace("\"", ""));

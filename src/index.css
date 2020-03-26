@@ -130,7 +130,12 @@ body {
 }
 
 
-
+.flag {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 
 @media only screen and (max-width: 600px) {
   #tultimos, #tfallecidos, #fultimos, #ffallecidos{
@@ -168,21 +173,24 @@ display: flex;
 justify-content: space-around;
 position: 'absolute'
 }
-}
 
 .flag {
   vertical-align: middle;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
 }
+
+}
+
+
 
 .green{
  color: #20481E;
 }
 
 .red{
-  color: #840600;
+  color: rgb(255, 145, 149);
 }
 
 .importante{

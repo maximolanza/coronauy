@@ -56,7 +56,7 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
      <td  className="columna textsm importante" style={{ paddingRight: "0"}}>{ active }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ critical }</td>
      <td  className="columna textsm" style={{ paddingRight: "0"}}>{ recovered}</td>
-     <td  className="columna textsm red" style={{ paddingRight: "0" , justifyContent: "center" }}>{ deaths }</td>
+     <td  className="columna textsm red" style={{ paddingRight: "0" , justifyContent: "center",paddingLeft: "1px" }}>{ deaths }</td>
     {/*  <td id="ffallecidos" className="columnaUltima textsm" style={{ paddingRight: "0"}}>{ todayDeaths }</td>*/}
    </tr>
 

@@ -112,13 +112,13 @@ const ListadoPaises = () => {
       <tr>
       <th scope="col" className="columnaIndex textsm" style={{ paddingRight: "0"}}> Nº</th>
       <th scope="col" className="columnaIndex textsm" style={{ paddingRight: "0"}}> </th>
-        <th scope="col" className="columnaPais textsm" style={{ paddingRight: "0", width:"10%"}}>País</th>
+        <th scope="col" className="columnaPais textsm" style={{ paddingRight: "0", width:"15%"}}>País</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Casos</th>
        {/* <th id="tultimos" scope="col" className="columnaAncha textsm" style={{ paddingRight: "0"}}>Ultimos casos</th>*/}
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Activos</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Críticos</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Recuperados</th>
-        <th scope="col" className="columna textsm" style={{ paddingRight: "1px", justifyContent: "center" }}>Fallecidos</th>
+        <th scope="col" className="columna textsm" style={{ paddingRight: "1px", justifyContent: "center",paddingLeft: "1px"  }}>Fallecidos</th>
        {/* <th id="tfallecidos" scope="col" className="columnaUltima textsm" style={{ paddingRight: "0"}}>Ultimos fallecimientos</th>*/}
       </tr>
     </thead>
