@@ -1,4 +1,4 @@
-## Proyect
+## Project
 
 #### CoronaUy
 
@@ -10,17 +10,13 @@ An application used to filter data form [NovelCOVID API](https://github.com/Nove
 
 This project is currently in development. Users can filter coutries by name and see visual data representation of Uruguay. Functionality to see by additional visual data represntation of all countries is in progress.
 
-## Project Screen Shot(s)
+## [DEMO](https://coronauy.netlify.com/ "DEMO")
 
-#### Example:   
+#### Link:   [https://coronauy.netlify.com](https://coronauy.netlify.com "http://https://coronauy.netlify.com")
 
-[ PRETEND SCREEN SHOT IS HERE ]
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
 
-## Installation and Setup Instructions
-
-#### Example:  
+## Installation and Setup Instructions 
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
@@ -40,14 +36,14 @@ To Visit App:
 ## Reflection
 
   - What was the context for this project? 
-This is a proyect to apply my knowleadge at the moment.
+   - This is a proyect to apply my knowleadge at the moment.
   - Why was this project challenging and therefore a really good learning experience?
-This project involves a fast adaptation to the changes of the information that is available in the API and the global information that is known.
+   - This project involves a fast adaptation to the changes of the information that is available in the API and the global information that is known.
   - What were some unexpected obstacles?
-Changes in the EndPoints of the API.
-Changes in the relevant information.
-Up to date data.
-Difference of COVID19 case numbers in data sets compared to actual numbers announced by government.
+   - Changes in the EndPoints of the API.
+   - Changes in the relevant information.
+   - Up to date data.
+   - Difference of COVID19 case numbers in data sets compared to actual numbers announced by government.
 
   - What tools did you use to implement this project?
 - create-react-app
