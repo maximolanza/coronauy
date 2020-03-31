@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './bootstrap.min.css';
-
+import "bootswatch/dist/superhero/bootstrap.min.css"; 
 import StateProvider from './context/StateContext';
 
 ReactDOM.render( <StateProvider className="content"><App /></StateProvider>, document.getElementById('root'));

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Global from './components/Global';
 import Uruguay from './components/Uruguay';
 import Footer from './components/Footer';
 import Alerta from './components/Alerta';
 import ListadoPaises from './components/Listado/ListadoPaises';
-import UruguayChart from './components/UruguayChart';
-
+import CountryChart from './components/CountryChart';
+import { StateContext } from './context/StateContext';
+import ModalChart from './components/Listado/ModalChart';
 
 function App() {
-
+   const { all } = useContext(StateContext);
 
   return (
     <div className="container">
-      <Alerta />
-      <h2 className="title text-center">Monitoreo</h2>
-
+      <Alerta />  
+      <ModalChart/>
 
       <div className="row">
         <div className="grid-item">
@@ -34,7 +34,11 @@ function App() {
       </div>
       <div className="row">
       <div className="itemListado chart" >
-      <UruguayChart
+      <CountryChart
+    
+      casesCountry = { all.casesuy }
+      deathsCountry = { all.deathsuy }
+        country = { all.uruguay }
       />
       </div>
   </div>
