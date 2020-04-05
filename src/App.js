@@ -38,6 +38,7 @@ function App() {
     
       casesCountry = { all.casesuy }
       deathsCountry = { all.deathsuy }
+      recoveredCountry = { all.recovereduy }
         country = { all.uruguay }
       />
       </div>

@@ -4,13 +4,13 @@ import React, { Fragment } from 'react';
 //import { StateContext } from '../context/StateContext';
 import Chart from './Chart';
 
-const CountryChart = ({ casesCountry, deathsCountry, country }) => {
+const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }) => {
 
     //const { all } = useContext(StateContext);
     //const country = all.uruguay;
 
 
-    const { cases, deaths } = country;
+    const { cases, deaths, recovered } = country;
 
     const convertDate = str => {
         const dateParts = str.split("/");
@@ -37,9 +37,11 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
 
     const casos = casesCountry;
     const fallecidos = deathsCountry;
+    const recuperados = recoveredCountry;
 
     let dataCases = [];
     let dataDeaths = [];
+    let dataRecovered = [];
     let lastDay = '';
 
     const correccionDia = (dia, valorActual) => {
@@ -57,7 +59,7 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
     const limpiar = text => {
         return text.replace("\"", "").replace("\"", "").replace("\\", "").replace("\\", "").replace("}", "").replace("{", "").replace("\"", "");
     }
-
+     /* CASOS */
     let strcasos = JSON.stringify(casos).split(',');
     let indexCero = 0;
 
@@ -71,6 +73,8 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
         }
     }
 
+
+    /* CASOS */
     for (let i = indexCero; i < strcasos.length - 1; i++) {
         strcasos[strcasos.length - 1] = strcasos[strcasos.length - 1].replace("}", "").replace("{", "");
         const caso = strcasos[i].split(':');
@@ -87,6 +91,8 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
         label: lastDay,
     })
 
+
+    /* Fallecidos */
     let strfallecidos = JSON.stringify(fallecidos).split(',');
 
     for (let i = indexCero; i < strfallecidos.length - 1; i++) {
@@ -100,6 +106,27 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
     }
     dataDeaths.push({
         y: deaths,
+        label: lastDay
+    })
+
+
+
+
+    /* RECUPERADOS */
+
+    let strrecuperados = JSON.stringify(recuperados).split(',');
+
+    for (let i = indexCero; i < strrecuperados.length - 1; i++) {
+        strrecuperados[0] = strrecuperados[0].replace("{", "");
+        strrecuperados[strrecuperados.length - 1] = strrecuperados[strrecuperados.length - 1].replace("}", "");
+        const caso = strrecuperados[i].split(':');
+        dataRecovered.push({
+            y: parseInt(caso[1]),
+            label: convertDate(limpiar(caso[0]))
+        })
+    }
+    dataRecovered.push({
+        y: recovered,
         label: lastDay
     })
 
@@ -126,6 +153,12 @@ const CountryChart = ({ casesCountry, deathsCountry, country }) => {
             name: "Fallecidos",
             showInLegend: true,
             dataPoints: dataDeaths
+        },
+        {
+            type: "spline",
+            name: "Recuperados",
+            showInLegend: true,
+            dataPoints: dataRecovered
         }
     
         ]

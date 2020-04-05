@@ -9,6 +9,7 @@ const StateProvider = (props) => {
   const [ countryForSearch, saveCountryForSearch] = useState('');
   const [ historicalCases, saveHistoricalCases] = useState({});
   const [ historicalDeaths, saveHistoricalDeaths] = useState({});
+  const [ historicalRecovered, saveHistoricalRecovered] = useState({});
   const [ showModal, saveShowModal] = useState(false);
   const [ currentCountryData, saveCurrentCountryData ] = useState({});
   const [ cargandoHistorico, saveCargandoHistorico ] = useState(true);
@@ -41,8 +42,7 @@ const StateProvider = (props) => {
       const callApiCountry = async () => {
         
         const urlHistoricalCountry = `https://corona.lmao.ninja/v2/historical/${countryForSearch.toString().toLowerCase()}`;
-
-
+        
         const [historicalCountry/*, dataCountry*/] = await Promise.all([
           axios(urlHistoricalCountry),
 
@@ -52,7 +52,7 @@ const StateProvider = (props) => {
 
         saveHistoricalCases( JSON.stringify(timeline.cases));
         saveHistoricalDeaths( JSON.stringify(timeline.deaths));
-
+        saveHistoricalRecovered( JSON.stringify(timeline.recovered) )
       }
       callApiCountry();
       saveShowModal(true);
@@ -96,7 +96,7 @@ const StateProvider = (props) => {
         global: cglobal.data,
         casesuy: timeline.cases,
         deathsuy: timeline.deaths,
-
+        recovereduy: timeline.recovered,
       })
     }
     callApi();
@@ -109,6 +109,7 @@ const StateProvider = (props) => {
         showModal,
         historicalCases,
         historicalDeaths,
+        historicalRecovered,
         countryForSearch,
         currentCountryData,
         cargandoHistorico, 

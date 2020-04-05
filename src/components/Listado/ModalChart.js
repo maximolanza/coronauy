@@ -9,7 +9,7 @@ import Spinner from '../Spinner';
 
 const ModalChart = () => {
 
-    const { showModal, saveShowModal, historicalCases, historicalDeaths, currentCountryData,  cargandoHistorico, 
+    const { showModal, saveShowModal, historicalCases, historicalDeaths, historicalRecovered, currentCountryData,  cargandoHistorico, 
         saveCargandoHistorico } = useContext(StateContext);
 
     const handleClose = () => {
@@ -52,6 +52,7 @@ const ModalChart = () => {
                 (  <CountryChart
                     casesCountry={historicalCases}
                     deathsCountry={historicalDeaths}
+                    recoveredCountry={historicalRecovered}
                     country={currentCountryData}
                  />)
                     }
