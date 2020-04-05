@@ -4,7 +4,7 @@ const Chart = ({ options }) => {
 
     const CanvasJS = CanvasJSReact.CanvasJS;
     const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
+    
 
     return ( 
 

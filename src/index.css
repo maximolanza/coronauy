@@ -196,3 +196,6 @@ position: 'absolute'
 .importante{
   font-weight: bold;
 }
+
+.modal-dialog {
+  z-index: 1050;}

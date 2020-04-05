@@ -33,69 +33,16 @@ const ListadoPaises = () => {
   
   const filterCountries = (query) => {
     return countries.filter((c) => {
-      console.log(c);
+      //console.log(c);
         return c.country.toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
     })
   }
-  // Descomentar para calcular maximos valores de ProgressBar
-/*
-       let maxC = 0;
-       let maxR = 0;
-       let maxD = 0;
-       
-       if ( countries ){
-        countries.map((c) => {
-          if (c.cases > maxC ) {
-            maxC = c.cases;
-          }
-          if (c.recovered > maxR ) {
-            maxR = c.recovered;
-          }
-
-          if (c.deaths > maxD ) {
-            maxD = c.deaths;
-          }
-
-         
-          
-         })
-   console.log(maxC + ' ' + maxR + ' ' + maxD);
-
-        }
-
-        */
+ 
     return ( 
 
-      /* Descomentar para obtener la CARD que contiene las ProgressBar */
-      
-        /*<div className="itemListado card border-secondary mb-3 d-flex">
-            <div className="card-header">Listado de paises</div>
-            <div className="card-body paises">
      
-    { countries.map( ( c, index ) => (
-                    //console.log(c),
-                    <Pais 
-                        key= { index }
-                        index= { index }
-                     
-                        maxC = { global.cases}
-                        maxR = { global.cases}
-                        maxD = { global.cases }
-                        pais = { c } />
-                    )
-                ) 
-     }
-           </div>
-    </div>*/
      <Fragment>
-   {/*   <input
-     type="text"
-     id="input"
-     name="pais"
-     placeholder="Nombre del País"
-     onChange={ actualizar }
-     value={ busqueda }
- />*/}
+   {}
  <div className="item card border-secondary mb-4 d-flex center">
  <h4 id="busqueda">Buscar País</h4>
  <div className="form-group col-sm-8 item center ">
@@ -119,7 +66,8 @@ const ListadoPaises = () => {
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Críticos</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>Recuperados</th>
         <th scope="col" className="columna textsm" style={{ paddingRight: "1px", justifyContent: "center",paddingLeft: "1px"  }}>Fallecidos</th>
-       {/* <th id="tfallecidos" scope="col" className="columnaUltima textsm" style={{ paddingRight: "0"}}>Ultimos fallecimientos</th>*/}
+        <th scope="col" className="columna textsm" style={{ paddingRight: "0"}}>  Gráfico </th>
+        {/* <th id="tfallecidos" scope="col" className="columnaUltima textsm" style={{ paddingRight: "0"}}>Ultimos fallecimientos</th>*/}
       </tr>
     </thead>
     <tbody>
