@@ -42,6 +42,7 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
     let dataCases = [];
     let dataDeaths = [];
     let dataRecovered = [];
+    let dataActivos = [];
     let lastDay = '';
 
     const correccionDia = (dia, valorActual) => {
@@ -78,9 +79,9 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
     for (let i = indexCero; i < strcasos.length - 1; i++) {
         strcasos[strcasos.length - 1] = strcasos[strcasos.length - 1].replace("}", "").replace("{", "");
         const caso = strcasos[i].split(':');
-        console.log(country.country + ' ' + limpiar(caso[0]));
+
         dataCases.push({
-            //Corrigo el día para que no quede mal en el chart
+            //Corrijo el día para que no quede mal en el chart
             y: correccionDia(convertDate(limpiar(caso[0])), parseInt(caso[1])),
             label: convertDate(limpiar(caso[0]))
         })
@@ -130,6 +131,64 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
         label: lastDay
     })
 
+
+
+
+
+    /* ACTIVOS */
+
+// Recorro los casos totales
+for (let ic = 0; ic < dataCases.length; ic++) {
+    // Creo variables para guardar los numeros
+    let c = dataCases[ic];
+    // en 'number' guardo los casos en cada dia del array
+    let number= c.y;
+    // en recovered voy a guardar la cantidad de recuperados en el mismo dia del array de casos
+    let recovered = 0;
+    // en recovered voy a guardar la cantidad de fallecidos en el mismo dia del array de casos
+
+    let death = 0;
+    let a = {
+        y: 0,
+        label:''
+    };
+
+    // Solo hago el calculo si tengo  casos > 0
+    if( number>0 ){
+        // Recorro los recuperados y capturo el numero en 'recovered' cuando es el mismo dia que current item
+        for (let ir = 0; ir < dataRecovered.length ; ir++) {
+            let r = dataRecovered[ir];
+            if( c.label === r.label ){
+                recovered= r.y;
+            }
+        }
+        
+        // Recorro los fallecidos y capturo el numero en 'deaths' cuando es el mismo dia que current item
+        for (let id = 0; id < dataDeaths.length ; id++) {
+            let d = dataDeaths[id];
+            if( c.label === d.label){
+                
+                death= d.y;
+               
+            }
+        }
+    }
+
+    // en 'a' guardo la fecha (label) y la cantidad de activos (y)
+    a.label= c.label;
+
+    // activos = (casos_totales - (recuperados + fallecidos))
+    a.y = number - (recovered + death);
+
+  // guardo el activo correspondiente en el array
+    dataActivos.push({
+        y: a.y,
+        label: a.label
+    })
+}
+
+
+    //Paso los arrays de datos para cada línea del CHART
     const options = {
         animationEnabled: false,
         title: {
@@ -159,6 +218,11 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
             name: "Recuperados",
             showInLegend: true,
             dataPoints: dataRecovered
+        },{
+            type: "spline",
+            name: "Activos",
+            showInLegend: true,
+            dataPoints: dataActivos
         }
     
         ]
