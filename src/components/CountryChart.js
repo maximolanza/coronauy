@@ -6,10 +6,6 @@ import Chart from './Chart';
 
 const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }) => {
 
-    //const { all } = useContext(StateContext);
-    //const country = all.uruguay;
-
-
     const { cases, deaths, recovered } = country;
 
     const convertDate = str => {
@@ -69,14 +65,19 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
         strcasos[strcasos.length - 1] = strcasos[strcasos.length - 1].replace("}", "").replace("{", "");
         const caso2 = strcasos[i2].split(':');
         if (parseInt(caso2[1]) > 0) {
-            indexCero = i2;
+            indexCero = i2 -1;
             break;
         }
     }
 
+        const now = new Date();
+        const stringDate = (now.getFullYear()  + '-' + (now.getMonth()+1 )+ '-' + now.getDate());
+        lastDay = stringDate;
 
+
+        //console.log('lastday ' + lastDay)
     /* CASOS */
-    for (let i = indexCero; i < strcasos.length - 1; i++) {
+    for (let i = indexCero; i < strcasos.length ; i++) {
         strcasos[strcasos.length - 1] = strcasos[strcasos.length - 1].replace("}", "").replace("{", "");
         const caso = strcasos[i].split(':');
 
@@ -85,7 +86,12 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
             y: correccionDia(convertDate(limpiar(caso[0])), parseInt(caso[1])),
             label: convertDate(limpiar(caso[0]))
         })
-        lastDay = convertDateWithoutSubstractOneDay(limpiar(caso[0]));
+
+        console.log('Fecha1: ' + limpiar(caso[0]) + ' Casos: ' + parseInt(caso[1]) );
+        //Descomentar para que la ultima fecha sea la del historico
+        ///lastDay = convertDateWithoutSubstractOneDay(limpiar(caso[0]));
+        // Día Actual
+        
     }
     dataCases.push({
         y: cases,
@@ -96,7 +102,7 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
     /* Fallecidos */
     let strfallecidos = JSON.stringify(fallecidos).split(',');
 
-    for (let i = indexCero; i < strfallecidos.length - 1; i++) {
+    for (let i = indexCero; i < strfallecidos.length ; i++) {
         strfallecidos[0] = strfallecidos[0].replace("{", "");
         strfallecidos[strfallecidos.length - 1] = strfallecidos[strfallecidos.length - 1].replace("}", "");
         const caso = strfallecidos[i].split(':');
@@ -117,7 +123,7 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
 
     let strrecuperados = JSON.stringify(recuperados).split(',');
 
-    for (let i = indexCero; i < strrecuperados.length - 1; i++) {
+    for (let i = indexCero; i < strrecuperados.length ; i++) {
         strrecuperados[0] = strrecuperados[0].replace("{", "");
         strrecuperados[strrecuperados.length - 1] = strrecuperados[strrecuperados.length - 1].replace("}", "");
         const caso = strrecuperados[i].split(':');
@@ -146,13 +152,11 @@ for (let ic = 0; ic < dataCases.length; ic++) {
     // en recovered voy a guardar la cantidad de recuperados en el mismo dia del array de casos
     let recovered = 0;
     // en recovered voy a guardar la cantidad de fallecidos en el mismo dia del array de casos
-
     let death = 0;
     let a = {
         y: 0,
         label:''
     };
-
     // Solo hago el calculo si tengo  casos > 0
     if( number>0 ){
         // Recorro los recuperados y capturo el numero en 'recovered' cuando es el mismo dia que current item
@@ -162,24 +166,18 @@ for (let ic = 0; ic < dataCases.length; ic++) {
                 recovered= r.y;
             }
         }
-        
         // Recorro los fallecidos y capturo el numero en 'deaths' cuando es el mismo dia que current item
         for (let id = 0; id < dataDeaths.length ; id++) {
             let d = dataDeaths[id];
-            if( c.label === d.label){
-                
+            if( c.label === d.label){    
                 death= d.y;
-               
             }
         }
     }
-
     // en 'a' guardo la fecha (label) y la cantidad de activos (y)
     a.label= c.label;
-
     // activos = (casos_totales - (recuperados + fallecidos))
     a.y = number - (recovered + death);
-
   // guardo el activo correspondiente en el array
     dataActivos.push({
         y: a.y,
