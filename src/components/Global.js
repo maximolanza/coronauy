@@ -10,11 +10,11 @@ const Global = () => {
 
     const global = all.global;
 
-    const { cases, deaths, recovered } = global;
+    const { cases, deaths, recovered, tests, active, critical } = global;
 
     const countries = all.countries;
 
-    let activeTotal = 0;
+   /* let activeTotal = 0;
     countries.map((c) => (
         activeTotal += c.active
     )
@@ -24,34 +24,40 @@ const Global = () => {
     countries.map((c) => (
         criticalTotal += c.critical
     )
-    )
+    )*/
 
-
+    const formatDots = (number) =>{
+        return number ? Number(number).toLocaleString('de-DE') : 0;
+    }
     return (
         <div className="item card border-secondary mb-3 d-flex">
             <div className="card-header">Global</div>
             <div className="card-body">
                 <ul className="list-group">
+                    
+                    <ContadorGlobal className="contaodr"
+                    indicador="Tests:"
+                    valor={ formatDots(tests) } />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Casos:"
-                        valor={cases} />
+                        valor={ formatDots(cases) } />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Activos:"
-                        valor={activeTotal} />
+                        valor={ formatDots(active) } />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Criticos:"
-                        valor={criticalTotal} />
+                        valor={ formatDots(critical) } />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Recuperados:"
-                        valor={recovered} />
+                        valor={ formatDots(recovered) } />
 
                     <ContadorGlobal className="contaodr"
                         indicador="Fallecidos:"
-                        valor={deaths} />
+                        valor={ formatDots(deaths) } />
 
 
 

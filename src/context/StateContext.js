@@ -87,7 +87,7 @@ const StateProvider = (props) => {
         axios(urlUruguay),
         axios(urlHistoricaluy)
       ]);
-
+      
       const timeline = chistoricaluy.data.timeline;
 
       saveAll({
