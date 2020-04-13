@@ -17,18 +17,21 @@ function App() {
       <ModalChart/>
 
       <div className="row">
+
+      <div className="grid-item" style={{ height: "100%"}}>
+      <div className="item" style={{ marginRight: "0.8rem", marginLeft: "0"}}>
+        <Uruguay
+        />
+      </div>
+    </div>
+    
         <div className="grid-item">
           <div className="item">
             <Global
             />
           </div>
         </div>
-        <div className="grid-item" style={{ height: "100%"}}>
-          <div className="item" style={{ marginRight: "0.8rem", marginLeft: "0"}}>
-            <Uruguay
-            />
-          </div>
-        </div>
+       
 
        
       </div>
