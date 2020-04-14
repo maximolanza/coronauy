@@ -15,7 +15,6 @@ function App() {
     <div className="container">
       <Alerta />  
       <ModalChart/>
-
       <div className="row">
 
       <div className="grid-item" style={{ height: "100%"}}>
@@ -44,9 +43,11 @@ function App() {
       recoveredCountry = { all.recovereduy }
         country = { all.uruguay }
       />
+       <a target='_blank' href="https://www.gub.uy/sistema-nacional-emergencias/comunicacion/noticias/informacion-interes-actualizada-sobre-coronavirus-covid-19-uruguay"
+      >Informes diarios del MSP</a>
       </div>
   </div>
-
+    
 
 <div className="row">
         <div className="itemListado">
