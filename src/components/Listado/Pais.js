@@ -1,24 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine } from '@fortawesome/free-solid-svg-icons'
-import { fas } from '@fortawesome/free-brands-svg-icons'
 import { StateContext } from '../../context/StateContext';
 
 const Pais = ({ index, maxC, maxR, maxD, pais }) => {
-    const { 
-        showModal,
-        saveShowModal,
-        historicalCases,
-        historicalDeaths,
-        countryForSearch,
-        getHistoricalData,
-        currentCountryData,
-        saveCountryForSearch,
-        saveHistoricalCases,
-        saveHistoricalDeaths,
-        saveCurrentCountryData,modalCall } = useContext(StateContext);
+    const { modalCall } = useContext(StateContext);
 
-    const { cases, recovered, deaths, country, todayDeaths, todayCases, active, critical, casesPerOneMillion, countryInfo } = pais;
+    const { cases, recovered, deaths, country, active, critical,  countryInfo } = pais;
     const { flag } = countryInfo;
 
 

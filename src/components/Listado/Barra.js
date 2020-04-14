@@ -7,8 +7,6 @@ const Barra = ( index, max, pais ) => {
     const deaths = 5;
 
 
-  //console.log( pais + ' ' + max + ' ' + index  );
-
     return ( 
         <Fragment>
         

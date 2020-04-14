@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ContadorUruguay from './ContadorUruguay';
 import { StateContext } from '../context/StateContext';
-import { formatNumber } from './helper';
+
 
 
 const Uruguay = () => {
@@ -13,10 +13,8 @@ const Uruguay = () => {
 
     let { country,
         cases,
-        todayCases,
         deaths,
         active,
-        todayDeaths,
         recovered,
         critical,
         tests } = uruguay;

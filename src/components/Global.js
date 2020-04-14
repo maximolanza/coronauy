@@ -29,6 +29,7 @@ const Global = () => {
     const formatDots = (number) =>{
         return number ? Number(number).toLocaleString('de-DE') : 0;
     }
+    
     return (
         <div className="item card border-secondary mb-3 d-flex">
             <div className="card-header">Global</div>
