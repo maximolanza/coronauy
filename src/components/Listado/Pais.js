@@ -6,17 +6,7 @@ import { StateContext } from '../../context/StateContext';
 
 const Pais = ({ index, maxC, maxR, maxD, pais }) => {
     const { 
-        showModal,
-        saveShowModal,
-        historicalCases,
-        historicalDeaths,
-        countryForSearch,
-        getHistoricalData,
-        currentCountryData,
-        saveCountryForSearch,
-        saveHistoricalCases,
-        saveHistoricalDeaths,
-        saveCurrentCountryData,modalCall } = useContext(StateContext);
+      modalCall } = useContext(StateContext);
 
     const { cases, recovered, deaths, country, todayDeaths, todayCases, active, critical, casesPerOneMillion, countryInfo } = pais;
     const { flag } = countryInfo;
