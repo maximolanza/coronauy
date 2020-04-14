@@ -103,16 +103,16 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
         label: ''
     };
 
-    if (dataCases.length > 0) {
-        value = dataCases[dataCases.length - 1];
+    //if (dataCases.length > 0) {
+     //   value = dataCases[dataCases.length - 1];
         //console.log();
-        if (value.y < cases) {
+      //  if (value.y < cases) {
             dataCases.push({
                 y: cases,
                 label: lastDay,
             })
-        }
-    }
+      //  }
+    //}
 
 
     // }
@@ -150,16 +150,16 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
         }
     }
 */
-if (dataCases.length > 0) {
-    value = dataCases[dataCases.length - 1];
+//if (dataCases.length > 0) {
+  //  value = dataCases[dataCases.length - 1];
     //console.log();
-    if (value.y < cases) {
+   // if (value.y < cases) {
         dataDeaths.push({
             y: deaths,
             label: lastDay
         })
-    }
-}
+   // }
+//}
   
 
 
@@ -199,16 +199,16 @@ if (dataCases.length > 0) {
     }
 */
 
-if (dataCases.length > 0) {
-    value = dataCases[dataCases.length - 1];
+//if (dataCases.length > 0) {
+  //  value = dataCases[dataCases.length - 1];
     //console.log();
-    if (value.y < cases) {
+  //  if (value.y < cases) {
         dataRecovered.push({
             y: recovered,
             label: lastDay
         })
-    }
-}
+//    }
+//}
    
 
 
@@ -253,10 +253,19 @@ if (dataCases.length > 0) {
         // activos = (casos_totales - (recuperados + fallecidos))
         a.y = number - (recovered + death);
         // guardo el activo correspondiente en el array
-        dataActivos.push({
-            y: a.y,
-            label: a.label
-        })
+
+        //if (dataCases.length > 0) {
+       //     value = dataCases[dataCases.length - 1];
+            //console.log();
+        //    if (value.y < cases) {
+                dataActivos.push({
+                    y: a.y,
+                    label: a.label
+                })
+         //   }
+        //}
+           
+       
     }
 
 

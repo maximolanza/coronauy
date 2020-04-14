@@ -22,10 +22,10 @@ const Uruguay = () => {
         tests } = uruguay;
 
 
-    if (cases === 472) {
+    /*if (cases < 494) {
         cases = 494;
         active = cases - (recovered + deaths);
-    }
+    }*/
 
     const formatDots = (number) =>{
         return number ? Number(number).toLocaleString('de-DE') : 0;
