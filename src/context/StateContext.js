@@ -75,9 +75,9 @@ const StateProvider = (props) => {
 
     const callApi = async () => {
 
-      const urlGlobal = `https://corona.lmao.ninja/all`;
-      const urlCountries = `https://corona.lmao.ninja/countries?sort=cases`;
-      const urlUruguay = `https://corona.lmao.ninja/countries/uruguay`;
+      const urlGlobal = `https://corona.lmao.ninja/v2/all`;
+      const urlCountries = `https://corona.lmao.ninja/v2/countries?sort=cases`;
+      const urlUruguay = `https://corona.lmao.ninja/v2/countries/uruguay`;
       const urlHistoricaluy = `https://corona.lmao.ninja/v2/historical/uruguay`;
 
 

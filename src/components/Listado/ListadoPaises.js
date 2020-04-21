@@ -13,7 +13,13 @@ const ListadoPaises = () => {
   const [ paises, guardarPaises ] = useState([]);
  
   
-
+  const filterCountries = (query) => {
+    return countries.filter((c) => {
+      //console.log(c);
+        return c.country.toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
+    })
+  }
+ 
 
   useEffect(() => {
 
@@ -31,12 +37,6 @@ const ListadoPaises = () => {
     });
   }
   
-  const filterCountries = (query) => {
-    return countries.filter((c) => {
-      //console.log(c);
-        return c.country.toString().toLowerCase().indexOf(query.toString().toLowerCase()) > -1;
-    })
-  }
  
     return ( 
 

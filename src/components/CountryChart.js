@@ -20,6 +20,17 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
 
     }
 
+    const addDayToDate = str => {
+        const dateParts = str.split("/");
+        const day = dateParts[1];
+        const month = dateParts[0];
+        const year = dateParts[2] + '20';
+        let c = new Date(year, month, day);
+        // Se resta 1 día por diferencia de fecha de carga de datos del dataset
+        c.setDate(c.getDate() + 1);
+        return c.getFullYear() + '-' + c.getMonth() + '-' + c.getDate();
+    }
+
 
     /*const convertDateWithoutSubstractOneDay = str => {
         const dateParts = str.split("/");
@@ -126,6 +137,13 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
             strfallecidos[0] = strfallecidos[0].replace("{", "");
             strfallecidos[strfallecidos.length - 1] = strfallecidos[strfallecidos.length - 1].replace("}", "");
             const caso = strfallecidos[i].split(':');
+            // Controlar cuando viene null
+            if(strfallecidos[i-1] && (caso[1] === null)){
+                const casoCorreccion = strfallecidos[i-1].split(':');
+                caso[1]=casoCorreccion[1]
+            }
+
+
             dataDeaths.push({
                 y: parseInt(caso[1]),
                 label: convertDate(limpiar(caso[0]))
@@ -174,6 +192,13 @@ const CountryChart = ({ casesCountry, deathsCountry, recoveredCountry, country }
             strrecuperados[0] = strrecuperados[0].replace("{", "");
             strrecuperados[strrecuperados.length - 1] = strrecuperados[strrecuperados.length - 1].replace("}", "");
             const caso = strrecuperados[i].split(':');
+
+            if(strfallecidos[i-1] && (caso[1] === null || caso[1] === 0)){
+                const casoCorreccion = strfallecidos[i-1].split(':');
+                caso[1]=casoCorreccion[1]
+            }
+
+
             dataRecovered.push({
                 y: parseInt(caso[1]),
                 label: convertDate(limpiar(caso[0]))
