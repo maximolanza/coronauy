@@ -43,8 +43,7 @@ function App() {
       recoveredCountry = { all.recovereduy }
         country = { all.uruguay }
       />
-       <a target='_blank' href="https://www.gub.uy/sistema-nacional-emergencias/comunicacion/noticias/informacion-interes-actualizada-sobre-coronavirus-covid-19-uruguay"
-      >Informes diarios del MSP</a>
+      
       </div>
   </div>
     
