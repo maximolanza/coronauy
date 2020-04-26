@@ -203,3 +203,7 @@ position: 'absolute'
   .alert{
     margin-top: 30px;
   }
+
+  .whitebackground{
+    background: white;
+  }
