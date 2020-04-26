@@ -33,7 +33,7 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
    <td className="columnaIndex textlg" style={{ paddingRight: "0"}}> { index +1 }</td> 
    <td className="columna textsm"  style={{ paddingRight: "0", paddingLeft: "0"}}>
      {flag.search("unknown") != -1 ? 
-     (<img src={ "https://ui-avatars.com/api/?name=" + country.replace(" ", "+") } alt={country + "flag"} className="rounded-circle flag" ></img>)
+     (<img src={ "https://ui-avatars.com/api/?name=" + country.replace(" ", "+") } alt={country + " flag"} className="rounded-circle flag" ></img>)
      :
      (<img src={ flag } alt={country + "flag"} className="rounded-circle flag" ></img>)}
      
