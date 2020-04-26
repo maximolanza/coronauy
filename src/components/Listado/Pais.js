@@ -1,8 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine } from '@fortawesome/free-solid-svg-icons'
 import { fas } from '@fortawesome/free-brands-svg-icons'
 import { StateContext } from '../../context/StateContext';
+import Skeleton from '@material-ui/lab/Skeleton';
+import { timeout } from 'q';
 
 const Pais = ({ index, maxC, maxR, maxD, pais }) => {
     const { 
@@ -18,14 +20,21 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
     }
 
     let tableClass = "table-secondary";
+
    if( country === "Uruguay"){
     tableClass =  "table-info";
    };
 
- 
+   let imageClass = "rounded-circle flag";
+   if( country === "Nepal"){
+    imageClass =  "rounded-circle flag whitebackground";
+   };
+
+   
+
+   
     return (
-     
-    
+
 
 
         
@@ -35,7 +44,13 @@ const Pais = ({ index, maxC, maxR, maxD, pais }) => {
      {flag.search("unknown") != -1 ? 
      (<img src={ "https://ui-avatars.com/api/?name=" + country.replace(" ", "+") } alt={country + " flag"} className="rounded-circle flag" ></img>)
      :
-     (<img src={ flag } alt={country + "flag"} className="rounded-circle flag" ></img>)}
+     ( 
+       <Fragment>
+      <Skeleton  variant="circle" width={20} height={20} animation="wave" style={{zIndex: 0, position: 'absolute'}}/>
+      <img src={ flag } alt={country + "flag"}  className={ imageClass } style={{zIndex: 1, position: 'absolute'}}></img>
+      </Fragment>
+
+     )}
      
      </td>
      <td className="columnaPais textlg" style={{ paddingRight: "0"}}>{ country }</td>
