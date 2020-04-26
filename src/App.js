@@ -7,10 +7,12 @@ import ListadoPaises from './components/Listado/ListadoPaises';
 import CountryChart from './components/CountryChart';
 import { StateContext } from './context/StateContext';
 import ModalChart from './components/Listado/ModalChart';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 function App() {
    const { all } = useContext(StateContext);
 
+   const cargando = true;
   return (
     <div className="container">
       <Alerta />  
@@ -19,15 +21,19 @@ function App() {
 
       <div className="grid-item" style={{ height: "100%"}}>
       <div className="item" style={{ marginRight: "0.8rem", marginLeft: "0"}}>
+        
         <Uruguay
         />
+        
       </div>
     </div>
     
         <div className="grid-item">
           <div className="item">
+       
             <Global
             />
+        
           </div>
         </div>
        
@@ -36,6 +42,8 @@ function App() {
       </div>
       <div className="row">
       <div className="itemListado chart" >
+      
+
       <CountryChart
     
       casesCountry = { all.casesuy }
@@ -43,7 +51,7 @@ function App() {
       recoveredCountry = { all.recovereduy }
         country = { all.uruguay }
       />
-      
+
       </div>
   </div>
     

@@ -56,7 +56,7 @@ body {
 .grid-item{
   align-items: center; 
   justify-content: center;
- 
+  margin-top: 30px;
 }
 
 .grid_itemListado{
@@ -199,3 +199,7 @@ position: 'absolute'
 
 .modal-dialog {
   z-index: 1050;}
+
+  .alert{
+    margin-top: 30px;
+  }

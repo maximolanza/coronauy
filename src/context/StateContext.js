@@ -13,7 +13,8 @@ const StateProvider = (props) => {
   const [ showModal, saveShowModal] = useState(false);
   const [ currentCountryData, saveCurrentCountryData ] = useState({});
   const [ cargandoHistorico, saveCargandoHistorico ] = useState(true);
-  
+  const [ cargandoWeb, saveCargandoWeb ] = useState(true);
+
   const [ all, saveAll] = useState({
     countries: [],
     uruguay: {},
@@ -74,7 +75,7 @@ const StateProvider = (props) => {
   const obtenerDatos = () => {
 
     const callApi = async () => {
-
+      
       const urlGlobal = `https://corona.lmao.ninja/v2/all`;
       const urlCountries = `https://corona.lmao.ninja/v2/countries?sort=cases`;
       const urlUruguay = `https://corona.lmao.ninja/v2/countries/uruguay`;
@@ -98,6 +99,8 @@ const StateProvider = (props) => {
         deathsuy: timeline.deaths,
         recovereduy: timeline.recovered,
       })
+
+      saveCargandoWeb(false);
     }
     callApi();
   };
@@ -113,6 +116,8 @@ const StateProvider = (props) => {
         countryForSearch,
         currentCountryData,
         cargandoHistorico, 
+        cargandoWeb,
+        saveCargandoWeb,
         saveCargandoHistorico,
         getHistoricalData,
         saveCountryForSearch,
